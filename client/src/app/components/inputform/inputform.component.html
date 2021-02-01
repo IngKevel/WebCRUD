@@ -1,0 +1,36 @@
+<div class="content" id="formulario">
+
+  <h1 class="logo">Crear <span> Usuario</span></h1>
+
+  <div class="form-wrapper animated bounceInUp">
+      <div class="style-form">
+          <form>
+              <p>
+                  <label>Nombre(s)</label>
+                  <input #nombre type="text"/>
+              </p>
+              <p>
+                  <label>Apellido paterno</label>
+                  <input #apellido_paterno type="text"/>
+              </p>
+              <p>
+                <label>Apellido materno</label>
+                <input #apellido_materno type="text"/>
+            </p>
+            <p>
+              <label>Dirección</label>
+              <input #direccion type="text"/>
+          </p>
+          <p>
+            <label>Teléfono</label>
+            <input #telefono  type="text"/>
+        </p>
+              <p class="block">
+                <button (click)="createUser(nombre.value, apellido_paterno.value, apellido_materno.value, direccion.value, telefono.value)">
+                  Guardar
+              </button>
+              </p>
+          </form>
+      </div>
+  </div>
+</div>

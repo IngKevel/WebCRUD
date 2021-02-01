@@ -1,0 +1,84 @@
+<h2 class="logo">Lista de <span>Usuarios</span></h2>
+<div class="container">
+    <div>
+        <input #dato id="dato" class="searchInput" type="text" placeholder="Buscar">
+        <div class="buttonSearch">
+            <button class="btn btn-success btn-block" (click)="getSearch(dato.value, dato.value, dato.value)">
+                Buscar
+            </button>
+            <button id="buttonClean" class="btn btn-primary btn-block" (click)="cleanSearch()">
+                Limpiar filtro
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div>
+            <table class="table table-hover table-bordered table-striped">
+                <thead>
+                    <tr class="rows">
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido Paterno</th>
+                        <th scope="col">Apellido Materno</th>
+                        <th scope="col">Dirección</th>
+                        <th scope="col">Teléfono</th>
+                        <th scope="col">Eliminar</th>
+                        <th scope="col">Editar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of users">
+                        <td>{{ user.nombre }}</td>
+                        <td>{{ user.apellido_paterno }}</td>
+                        <td>{{ user.apellido_materno }}</td>
+                        <td>{{ user.direccion }}</td>
+                        <td>{{ user.telefono }}</td>
+                        <td>
+                            <button class="btn btn-danger" (click)="deleteUser(user.id)">
+                                <i class="far fa-trash-alt"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button class="btn btn-warning" (click)="updateUser(user.id, user.nombre, user.apellido_paterno, user.apellido_materno, user.direccion, user.telefono)">
+                                <i class="fas fa-user-edit"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="content" id="formulario">
+        <div class="form-wrapper animated bounceInUp">
+            <div class="style-form">
+                <h2 class="logo">Actualizar <span> Usuario</span></h2>
+                <form>
+                    <p>
+                        <input #nombre id="nombre" type="text" placeholder="Nombre(s)"/>
+                    </p>
+                    <p>
+                        <input #apellido_paterno id="apellido_paterno" type="text" placeholder="Apellido paterno"/>
+                    </p>
+                    <p>
+                      <input #apellido_materno id="apellido_materno" type="text" placeholder="Apellido materno"/>
+                  </p>
+                  <p>
+                    <input #direccion id="direccion" type="text" placeholder="Dirección"/>
+                </p>
+                <p>
+                  <input #telefono id="telefono" type="text" placeholder="Teléfono"/>
+              </p>
+                    <p class="block">
+                      <button (click)="saveUpdate(nombre.value, apellido_paterno.value, apellido_materno.value, direccion.value, telefono.value)">
+                        Guardar
+                    </button>
+                    </p>
+                    <p class="block">
+                        <button (click)="closeUpdate()">
+                            Cancelar
+                      </button>
+                      </p>
+                </form>
+            </div>
+        </div>
+      </div>
+</div>
